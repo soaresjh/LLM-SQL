@@ -9,7 +9,16 @@ A aplicação foi desenvolvida baseda em 4 microserviçes:
 * **ollama**: aplicação responsavel por executar a llm
 * **postgresql**: banco de dados com o registro dos modelos e interações
 
-Para utilizar o app é necessário clonar esse repositório, e executar os comando:
+Para utilizar o app é necessário clonar esse repositório, 
+criar um arquivo .env dentro do diretorio assistant/tools com as seguintes variasveis:
+
+* MY_SQL_HOST= nome do servidor
+* MY_SQL_PORT= porta de acesso
+* MY_SQL_USER= nome do usuario
+* MY_SQL_PASSWORD= senha do usuario
+* MY_SQL_DATABASE= nome do banco de dados
+
+e executar os comando:
 ```bash
 docker-compose build
 
