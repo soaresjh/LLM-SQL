@@ -24,7 +24,7 @@ services:
     networks:
       - ollama-docker
     depends_on:
-      - ollama
+      - assistant
     ports:
       - 8500:8501
     command: sleep infinity

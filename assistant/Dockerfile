@@ -15,4 +15,4 @@ COPY . /home/app
 
 EXPOSE 5001
 
-## CMD ["fastapi", "run", "app/main.py", "--port", "5001"]
+CMD ["fastapi", "run", "app/main.py", "--port", "5001"]
