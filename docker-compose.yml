@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  assistant:
+    build:
+      context: ./assistant
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/workspaces:cached
+    networks:
+      - ollama-docker
+    depends_on:
+      - ollama
+    ports:
+      - 5000:5001
+    command: sleep infinity
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/workspaces:cached
+    networks:
+      - ollama-docker
+    depends_on:
+      - ollama
+    ports:
+      - 8500:8501
+    command: sleep infinity
+
+  ollama:
+    image: ollama/ollama:latest
+    restart: on-failure
+    volumes:
+      - ollama:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: 
+                - gpu
+    networks:
+      - ollama-docker
+
+  postgres:
+    image: postgres:16
+    restart: on-failure
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: postgres 
+    networks:
+      - ollama-docker
+
+volumes:
+  ollama:
+  postgres-data:
+  
+networks:
+  ollama-docker:
+    external: false

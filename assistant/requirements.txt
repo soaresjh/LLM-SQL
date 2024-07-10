@@ -1,0 +1,11 @@
+pandas==2.2.2
+psycopg2==2.9.9
+PyMySQL==1.1.1
+sqlalchemy==2.0.31
+mysql-connector-python==9.0.0
+fastapi==0.111.0
+requests==2.32.3
+streamlit==1.35.0
+langchain==0.2.6
+langchain-community==0.2.6
+langchain-core==0.2.11

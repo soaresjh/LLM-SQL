@@ -1,0 +1,198 @@
+,entity_id,entity_name,entity_category,entity_parent,entity_description,entity_type
+0,1,customers,table,NaN,Stores information about customers,NaN
+1,2,id,field,customers,Unique identifier for each customer,int
+2,3,company,field,customers,Name of the customer's company,varchar(50)
+3,4,last_name,field,customers,Customer's last name,varchar(50)
+4,5,first_name,field,customers,Customer's first name,varchar(50)
+5,6,email_address,field,customers,Customer's email address,varchar(50)
+6,7,job_title,field,customers,Customer's job title,varchar(50)
+7,8,business_phone,field,customers,Customer's business phone number,varchar(25)
+8,9,home_phone,field,customers,Customer's home phone number,varchar(25)
+9,10,mobile_phone,field,customers,Customer's mobile phone number,varchar(25)
+10,11,fax_number,field,customers,Customer's fax number,varchar(25)
+11,12,address,field,customers,Customer's address,longtext
+12,13,city,field,customers,City of the customer's address,varchar(50)
+13,14,state_province,field,customers,State or province of the address,varchar(50)
+14,15,zip_postal_code,field,customers,ZIP or postal code of the address,varchar(15)
+15,16,country_region,field,customers,Country or region of the address,varchar(50)
+16,17,web_page,field,customers,Customer's web page,longtext
+17,18,notes,field,customers,Additional notes about the customer,longtext
+18,19,attachments,field,customers,Attachments related to the customer,longblob
+19,20,employee_privileges,table,NaN,Associates employees with their privileges,NaN
+20,21,employee_id,field,employee_privileges,Unique identifier for each employee,int
+21,22,privilege_id,field,employee_privileges,Unique identifier for each privilege,int
+22,23,employees,table,NaN,Stores information about employees,NaN
+23,24,id,field,employees,Unique identifier for each employee,int
+24,25,company,field,employees,Name of the employee's company,varchar(50)
+25,26,last_name,field,employees,Employee's last name,varchar(50)
+26,27,first_name,field,employees,Employee's first name,varchar(50)
+27,28,email_address,field,employees,Employee's email address,varchar(50)
+28,29,job_title,field,employees,Employee's job title,varchar(50)
+29,30,business_phone,field,employees,Employee's business phone number,varchar(25)
+30,31,home_phone,field,employees,Employee's home phone number,varchar(25)
+31,32,mobile_phone,field,employees,Employee's mobile phone number,varchar(25)
+32,33,fax_number,field,employees,Employee's fax number,varchar(25)
+33,34,address,field,employees,Employee's address,longtext
+34,35,city,field,employees,City of the employee's address,varchar(50)
+35,36,state_province,field,employees,State or province of the address,varchar(50)
+36,37,zip_postal_code,field,employees,ZIP or postal code of the address,varchar(15)
+37,38,country_region,field,employees,Country or region of the address,varchar(50)
+38,39,web_page,field,employees,Employee's web page,longtext
+39,40,notes,field,employees,Additional notes about the employee,longtext
+40,41,attachments,field,employees,Attachments related to the employee,longblob
+41,42,inventory_transaction_types,table,NaN,Stores types of inventory transactions,NaN
+42,43,id,field,inventory_transaction_types,Unique identifier for each transaction type,tinyint
+43,44,type_name,field,inventory_transaction_types,Name of the transaction type,varchar(50)
+44,45,inventory_transactions,table,NaN,Stores details of inventory transactions,NaN
+45,46,id,field,inventory_transactions,Unique identifier for each transaction,int
+46,47,transaction_type,field,inventory_transactions,Type of the transaction,tinyint
+47,48,transaction_created_date,field,inventory_transactions,Date the transaction was created,datetime
+48,49,transaction_modified_date,field,inventory_transactions,Date the transaction was modified,datetime
+49,50,product_id,field,inventory_transactions,ID of the product involved in the transaction,int
+50,51,quantity,field,inventory_transactions,Quantity of the product in the transaction,int
+51,52,purchase_order_id,field,inventory_transactions,ID of the related purchase order,int
+52,53,customer_order_id,field,inventory_transactions,ID of the related customer order,int
+53,54,comments,field,inventory_transactions,Comments about the transaction,varchar(255)
+54,55,invoices,table,NaN,Stores invoice details,NaN
+55,56,id,field,invoices,Unique identifier for each invoice,int
+56,57,order_id,field,invoices,ID of the related order,int
+57,58,invoice_date,field,invoices,Date of the invoice,datetime
+58,59,due_date,field,invoices,Due date of the invoice,datetime
+59,60,tax,field,invoices,Tax amount,"decimal(19,4)"
+60,61,shipping,field,invoices,Shipping cost,"decimal(19,4)"
+61,62,amount_due,field,invoices,Total amount due,"decimal(19,4)"
+62,63,order_details,table,NaN,Stores details of orders,NaN
+63,64,id,field,order_details,Unique identifier for each order detail,int
+64,65,order_id,field,order_details,ID of the related order,int
+65,66,product_id,field,order_details,ID of the product in the order,int
+66,67,quantity,field,order_details,Quantity of the product ordered,"decimal(18,4)"
+67,68,unit_price,field,order_details,Unit price of the product,"decimal(19,4)"
+68,69,discount,field,order_details,Discount applied to the order,double
+69,70,status_id,field,order_details,ID of the status of the order,int
+70,71,date_allocated,field,order_details,Date the order was allocated,datetime
+71,72,purchase_order_id,field,order_details,ID of the related purchase order,int
+72,73,inventory_id,field,order_details,ID of the related inventory item,int
+73,74,order_details_status,table,NaN,Stores statuses of order details,NaN
+74,75,id,field,order_details_status,Unique identifier for each status,int
+75,76,status_name,field,order_details_status,Name of the status,varchar(50)
+76,77,orders,table,NaN,Stores order information,NaN
+77,78,id,field,orders,Unique identifier for each order,int
+78,79,employee_id,field,orders,ID of the employee handling the order,int
+79,80,customer_id,field,orders,ID of the customer placing the order,int
+80,81,order_date,field,orders,Date the order was placed,datetime
+81,82,shipped_date,field,orders,Date the order was shipped,datetime
+82,83,shipper_id,field,orders,ID of the shipper,int
+83,84,ship_name,field,orders,Name of the recipient,varchar(50)
+84,85,ship_address,field,orders,Address where the order is shipped,longtext
+85,86,ship_city,field,orders,City of the shipping address,varchar(50)
+86,87,ship_state_province,field,orders,State or province of the shipping address,varchar(50)
+87,88,ship_zip_postal_code,field,orders,ZIP or postal code of the shipping address,varchar(50)
+88,89,ship_country_region,field,orders,Country or region of the shipping address,varchar(50)
+89,90,shipping_fee,field,orders,Shipping fee,"decimal(19,4)"
+90,91,taxes,field,orders,Taxes applied to the order,"decimal(19,4)"
+91,92,payment_type,field,orders,Type of payment used,varchar(50)
+92,93,paid_date,field,orders,Date the order was paid,datetime
+93,94,notes,field,orders,Additional notes about the order,longtext
+94,95,tax_rate,field,orders,Tax rate applied,double
+95,96,tax_status_id,field,orders,ID of the tax status,tinyint
+96,98,orders_status,table,NaN,Stores statuses of orders,NaN
+97,99,id,field,orders_status,Unique identifier for each status,tinyint
+98,100,status_name,field,orders_status,Name of the status,varchar(50)
+99,101,orders_tax_status,table,NaN,Stores tax statuses of orders,NaN
+100,102,id,field,orders_tax_status,Unique identifier for each tax status,tinyint
+101,103,tax_status_name,field,orders_tax_status,Name of the tax status,varchar(50)
+102,104,privileges,table,NaN,Stores privilege information,NaN
+103,105,id,field,privileges,Unique identifier for each privilege,int
+104,106,privilege_name,field,privileges,Name of the privilege,varchar(50)
+105,107,products,table,NaN,Stores information about products,NaN
+106,108,supplier_ids,field,products,IDs of suppliers,longtext
+107,109,id,field,products,Unique identifier for each product,int
+108,110,product_code,field,products,Code of the product,varchar(25)
+109,111,product_name,field,products,Name of the product,varchar(50)
+110,112,description,field,products,Description of the product,longtext
+111,113,standard_cost,field,products,Standard cost of the product,"decimal(19,4)"
+112,114,list_price,field,products,List price of the product,"decimal(19,4)"
+113,115,reorder_level,field,products,Reorder level of the product,int
+114,116,target_level,field,products,Target level of the product,int
+115,117,quantity_per_unit,field,products,Quantity per unit,varchar(50)
+116,118,discontinued,field,products,Whether the product is discontinued,tinyint(1)
+117,119,minimum_reorder_quantity,field,products,Minimum reorder quantity,int
+118,120,category,field,products,Category of the product,varchar(50)
+119,121,attachments,field,products,Attachments related to the product,longblob
+120,122,purchase_order_details,table,NaN,Stores details of purchase orders,NaN
+121,123,id,field,purchase_order_details,Unique identifier for each detail,int
+122,124,purchase_order_id,field,purchase_order_details,ID of the related purchase order,int
+123,125,product_id,field,purchase_order_details,ID of the product in the purchase order,int
+124,126,quantity,field,purchase_order_details,Quantity of the product ordered,"decimal(18,4)"
+125,127,unit_cost,field,purchase_order_details,Unit cost of the product,"decimal(19,4)"
+126,128,date_received,field,purchase_order_details,Date the product was received,datetime
+127,129,posted_to_inventory,field,purchase_order_details,Whether posted to inventory,tinyint(1)
+128,130,inventory_id,field,purchase_order_details,ID of the related inventory item,int
+129,131,purchase_order_status,table,NaN,Stores statuses of purchase orders,NaN
+130,132,id,field,purchase_order_status,Unique identifier for each status,int
+131,133,status,field,purchase_order_status,Status of the purchase order,varchar(50)
+132,134,purchase_orders,table,NaN,Stores information about purchase orders,NaN
+133,135,id,field,purchase_orders,Unique identifier for each order,int
+134,136,supplier_id,field,purchase_orders,ID of the supplier,int
+135,137,created_by,field,purchase_orders,ID of the creator,int
+136,138,submitted_date,field,purchase_orders,Date the order was submitted,datetime
+137,139,creation_date,field,purchase_orders,Date the order was created,datetime
+138,140,status_id,field,purchase_orders,ID of the status,int
+139,141,expected_date,field,purchase_orders,Expected delivery date,datetime
+140,142,shipping_fee,field,purchase_orders,Shipping fee,"decimal(19,4)"
+141,143,taxes,field,purchase_orders,Taxes applied,"decimal(19,4)"
+142,144,payment_date,field,purchase_orders,Payment date,datetime
+143,145,payment_amount,field,purchase_orders,Payment amount,"decimal(19,4)"
+144,146,payment_method,field,purchase_orders,Payment method,varchar(50)
+145,147,notes,field,purchase_orders,Additional notes about the order,longtext
+146,148,approved_by,field,purchase_orders,ID of the approver,int
+147,149,approved_date,field,purchase_orders,Approval date,datetime
+148,150,submitted_by,field,purchase_orders,ID of the submitter,int
+149,151,sales_reports,table,NaN,Stores sales report configurations,NaN
+150,152,group_by,field,sales_reports,Grouping criteria for the report,varchar(50)
+151,153,display,field,sales_reports,Display settings for the report,varchar(50)
+152,154,title,field,sales_reports,Title of the report,varchar(50)
+153,155,filter_row_source,field,sales_reports,Source of filter data,longtext
+154,156,default,field,sales_reports,Whether the report is default,tinyint(1)
+155,157,shippers,table,NaN,Stores information about shippers,NaN
+156,158,id,field,shippers,Unique identifier for each shipper,int
+157,159,company,field,shippers,Name of the shipper's company,varchar(50)
+158,160,last_name,field,shippers,Shipper's last name,varchar(50)
+159,161,first_name,field,shippers,Shipper's first name,varchar(50)
+160,162,email_address,field,shippers,Shipper's email address,varchar(50)
+161,163,job_title,field,shippers,Shipper's job title,varchar(50)
+162,164,business_phone,field,shippers,Shipper's business phone number,varchar(25)
+163,165,home_phone,field,shippers,Shipper's home phone number,varchar(25)
+164,166,mobile_phone,field,shippers,Shipper's mobile phone number,varchar(25)
+165,167,fax_number,field,shippers,Shipper's fax number,varchar(25)
+166,168,address,field,shippers,Shipper's address,longtext
+167,169,city,field,shippers,City of the shipper's address,varchar(50)
+168,170,state_province,field,shippers,State or province of the address,varchar(50)
+169,171,zip_postal_code,field,shippers,ZIP or postal code of the address,varchar(15)
+170,172,country_region,field,shippers,Country or region of the address,varchar(50)
+171,173,web_page,field,shippers,Shipper's web page,longtext
+172,174,notes,field,shippers,Additional notes about the shipper,longtext
+173,175,attachments,field,shippers,Attachments related to the shipper,longblob
+174,176,strings,table,NaN,Stores string data for the application,NaN
+175,177,string_id,field,strings,Unique identifier for each string,int
+176,178,string_data,field,strings,Data of the string,varchar(255)
+177,179,suppliers,table,NaN,Stores information about suppliers,NaN
+178,180,id,field,suppliers,Unique identifier for each supplier,int
+179,181,company,field,suppliers,Name of the supplier's company,varchar(50)
+180,182,last_name,field,suppliers,Supplier's last name,varchar(50)
+181,183,first_name,field,suppliers,Supplier's first name,varchar(50)
+182,184,email_address,field,suppliers,Supplier's email address,varchar(50)
+183,185,job_title,field,suppliers,Supplier's job title,varchar(50)
+184,186,business_phone,field,suppliers,Supplier's business phone number,varchar(25)
+185,187,home_phone,field,suppliers,Supplier's home phone number,varchar(25)
+186,188,mobile_phone,field,suppliers,Supplier's mobile phone number,varchar(25)
+187,189,fax_number,field,suppliers,Supplier's fax number,varchar(25)
+188,190,address,field,suppliers,Supplier's address,longtext
+189,191,city,field,suppliers,City of the supplier's address,varchar(50)
+190,192,state_province,field,suppliers,State or province of the address,varchar(50)
+191,193,zip_postal_code,field,suppliers,ZIP or postal code of the address,varchar(15)
+192,194,country_region,field,suppliers,Country or region of the address,varchar(50)
+193,195,web_page,field,suppliers,Supplier's web page,longtext
+194,196,notes,field,suppliers,Additional notes about the supplier,longtext
+195,197,attachments,field,suppliers,Attachments related to the supplier,longblob
+196,97,status_id,field,orders,ID of the order status where 2 means shipped and 3 means shipped and paid,tinyint
