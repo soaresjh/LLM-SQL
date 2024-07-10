@@ -34,6 +34,7 @@ O objetivo principal é a democratização da informação e desenvolvimento de 
 ## Transparecencia do resultado
 
 Para evitar que o ferramenta atua como uma caixa preta onde o usuário se sente obrigado a aceitar o que foi entregue, é apresentado a query gerada pelo modelo, o resultado dessa query e qual a explicação que o modelo trouxe para a query proposta.
+
 <img src="image/robot_response.png" alt="A beautiful sunset" width="600">
 
 ## Retroalimentação fornecida pelo usuário
@@ -49,4 +50,5 @@ A tabela guarda os registros das execuções e das correções feitas pelo usuá
 ## Controle de variaveis e padronização
 
 Por se tratar de um modelo de llm, as informações fornecidas no prompt são altamente relevante. O controle de modelo é feito não somente monitorando a llm base mas tambem as informações que são utilizadas para fornecer as instruções do modelo
+
 <img src="image/llmops.png" alt="A beautiful sunset" width="600">
